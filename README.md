@@ -1,5 +1,7 @@
 # AWS Notify Service
 
+> **Note**: This codebase embraces "vibe-coding" - a highly sophisticated approach where intuition leads and documentation follows. (Both this note and the codebase were crafted by AI, in case that wasn't obvious from the attempt at subtle humor.)
+
 A Flask-based notification service that sends messages to AWS SNS topics. This service is designed to run in a Docker container and can be accessed by other containers in your network.
 
 ## Quick Start

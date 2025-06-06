@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Notify - Send Notifications</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>AWS Notify</h1>
+
+            <div id="healthStatus" class="health-status">
+                Checking service status...
+            </div>
+
+            <form id="notifyForm">
+                <div class="form-group">
+                    <label for="subject">Subject (optional)</label>
+                    <div class="input-field">
+                        <input type="text" id="subject" name="subject" placeholder="Enter notification subject">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <div class="input-field">
+                        <textarea id="message" name="message" required placeholder="Enter your notification message"></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" id="submitBtn">Send Notification</button>
+            </form>
+
+            <div id="status" class="status"></div>
+        </div>
+    </div>
+
+    <div class="theme-toggle">
+        <label class="switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

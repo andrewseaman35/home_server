@@ -1,4 +1,5 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
+from flask_cors import CORS
 import boto3
 import os
 from dotenv import load_dotenv
@@ -6,7 +7,9 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
-app = Flask(__name__)
+# Initialize Flask app with explicit static folder path
+app = Flask(__name__, static_url_path='', static_folder='static')
+CORS(app)  # Enable CORS for all routes
 
 # Initialize AWS SNS client
 sns = boto3.client(
@@ -15,6 +18,11 @@ sns = boto3.client(
     aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
     region_name=os.getenv('AWS_REGION', 'us-east-1')
 )
+
+@app.route('/')
+def index():
+    """Serve the main HTML page."""
+    return send_from_directory(app.static_folder, 'index.html')
 
 @app.route('/health', methods=['GET'])
 def health_check():
